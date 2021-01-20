@@ -294,3 +294,7 @@ sub {
     height: 100px;
     color: var(--primary-color);
 }
+
+.time{
+    font-size: 30px;
+}

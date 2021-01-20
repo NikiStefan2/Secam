@@ -5,7 +5,7 @@ window.onload = function () {
     light.addEventListener("click", function () {
         document.body.setAttribute("class", "light");
         light.style.display = "none";
-        night.style.display = "block";
+        night.style.display = "block";hh
     });
     night.addEventListener("click", function () {
         document.body.setAttribute("class", "night");
@@ -496,6 +496,19 @@ window.onload = function () {
             }
         }
     })
+
+    let time = 0;
+    let miliseconds = 0;
+
+    function AddTime(){
+        miliseconds += 0.01;
+    }
+
+    setInterval(AddTime(), 10);
+
+    let Time = document.createElement("span");
+
+    Time.classList.add("time");
 }
 
 
