@@ -5,7 +5,7 @@ window.onload = function () {
     light.addEventListener("click", function () {
         document.body.setAttribute("class", "light");
         light.style.display = "none";
-        night.style.display = "block";hh
+        night.style.display = "block"; hh
     });
     night.addEventListener("click", function () {
         document.body.setAttribute("class", "night");
@@ -499,16 +499,66 @@ window.onload = function () {
 
     let time = 0;
     let miliseconds = 0;
+    let minutes = 0;
 
-    function AddTime(){
-        miliseconds += 0.01;
-    }
+    /*function AddTime(){
+        time = 0.01;
+        miliseconds += time;
+        console.log("hehe");
 
-    setInterval(AddTime(), 10);
+        console.log(miliseconds);
+    }*/
 
-    let Time = document.createElement("span");
+    setInterval(function () {
+        time = 1;//;2;
+        miliseconds += time;
+        console.log("hehe");
 
-    Time.classList.add("time");
+        console.log(miliseconds);
+
+
+    }, 1000);
+
+
+
+    setInterval(function () {
+        Timemiliseconds.innerHTML = miliseconds;
+        Timeminutes.innerHTML = minutes + "     " + ":";
+    }, 1000);
+
+    let Timemiliseconds = document.createElement("span");
+    let Timeminutes = document.createElement("span");
+    let zero_miliseconds = document.getElementById("zero-mioliseconds"); 
+    let zero_minutes = document.getElementById("zero-minutes"); 
+    /*let Time = document.createElement("span");
+    let Time = document.createElement("span");*/
+
+    Timemiliseconds.classList.add("time");
+    Timeminutes.classList.add("timeMinutes");
+
+    //Time.innerHTML = miliseconds;
+
+    document.getElementById("Timer").appendChild(Timemiliseconds);
+    document.getElementById("Timer").appendChild(Timeminutes);
+
+    setInterval(function () {
+        if (miliseconds >= 59) {
+            minutes += time;
+            miliseconds = -1;
+            console.debug("dads");
+        }
+
+        if(miliseconds >= 9){
+            //miliseconds = zero_miliseconds + miliseconds;
+            zero_miliseconds.style.display = "none";
+        } else{
+            zero_miliseconds.style.display = "block";
+        }
+        if(minutes >= 9 || minutes == 0){
+            //Timeminutes = zero_minutes + Timeminutes;
+            zero_minutes.style.display = "none";
+        } else{
+            zero_minutes.style.display = "block";
+        }
+    }, 1000)
 }
-
-
